@@ -1,0 +1,32 @@
+{
+  "name": "metalsmith-xo",
+  "version": "1.0.0",
+  "description": "Metalsmith XO plugin",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node --harmony ./node_modules/.bin/tape test/**/*.test.js",
+    "lint": "xo"
+  },
+  "author": "Blain Smith <rebelgeek@blainsmith.com> (http://blainsmith.com/)",
+  "license": "MIT",
+	"repository": "blainsmith/metalsmith-xo",
+  "keywords": [
+    "metalsmith",
+    "eslint",
+    "linting",
+		"xo"
+  ],
+  "dependencies": {
+    "eslint": "^1.7.1",
+    "eslint-config-xo": "^0.6.0",
+    "metalsmith-eslint": "0.0.3"
+  },
+  "devDependencies": {
+    "ava": "^0.2.0",
+    "babel-eslint": "^4.1.3",
+    "eslint-plugin-babel": "^2.1.1",
+    "metalsmith": "^2.1.0",
+    "sinon": "^1.17.1",
+    "tape": "^4.2.1"
+  }
+}
