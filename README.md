@@ -35,4 +35,12 @@ metalsmith.use(xo('esnext'));
 metalsmith.use(xo('browser'));
 ```
 
+**Custom metalsmith-eslint config**
+```js
+var config = {
+	src: ['**/*.js','!vendor/**/*.js']
+}
+metalsmith.use(xo('browser', config));
+```
+
 You can pass `esnext` or `browser` to the function to turn on the rules you need. However, `esnext` requires some extra modules that you can read [over there](https://github.com/sindresorhus/eslint-config-xo).
