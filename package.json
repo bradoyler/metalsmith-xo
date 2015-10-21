@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-xo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Metalsmith XO plugin",
   "main": "lib/index.js",
   "scripts": {
