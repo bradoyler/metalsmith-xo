@@ -36,9 +36,12 @@ metalsmith.use(xo('browser'));
 ```
 
 **Custom metalsmith-eslint config**
+
+By default it will lint all `.js` files except for files in `vendor`, `bower_components`, and `node_modules`. If you wish to override these paths you can by specifying them below.
+
 ```js
 var config = {
-	src: ['**/*.js','!vendor/**/*.js']
+	src: ['**/*.js','!ignore-this-folder/**/*.js']
 }
 metalsmith.use(xo('browser', config));
 ```
