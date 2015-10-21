@@ -64,7 +64,7 @@ test('xo/browser with good src config', function (t) {
 	/* eslint-enable */
 		.source('./')
 		.use(xo('browser', {
-			src: ['ok.js','!error.js']
+			src: ['ok.js', '!error.js']
 		}))
 		.build(function (err) {
 			t.is(err, null);
