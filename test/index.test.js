@@ -19,7 +19,7 @@ test.after(function (t) {
 test('xo', function (t) {
 	/* eslint-disable */
 	Metalsmith('./test/fixtures/xo')
-	/* eslint-ensable */
+	/* eslint-enable */
 		.source('./')
 		.use(xo())
 		.build(function (err) {
@@ -33,7 +33,7 @@ test('xo', function (t) {
 test('xo/esnext', function (t) {
 	/* eslint-disable */
 	Metalsmith('./test/fixtures/esnext')
-	/* eslint-ensable */
+	/* eslint-enable */
 		.source('./')
 		.use(xo('esnext'))
 		.build(function (err) {
@@ -47,9 +47,53 @@ test('xo/esnext', function (t) {
 test('xo/browser', function (t) {
 	/* eslint-disable */
 	Metalsmith('./test/fixtures/browser')
-	/* eslint-ensable */
+	/* eslint-enable */
 		.source('./')
 		.use(xo('browser'))
+		.build(function (err) {
+			t.ok(err, 'linting failed');
+			t.is(err.message, 'Linting failed with 1 errors!');
+			sinon.assert.calledWithExactly(console.log, '\n\u001b[4merror.js\u001b[24m\n  \u001b[90m1:16\u001b[39m  \u001b[31merror\u001b[39m  "require" is not defined  \u001b[90mno-undef\u001b[39m\n\n\u001b[31m\u001b[1m✖ 1 problem (1 error, 0 warnings)\n\u001b[22m\u001b[39m');
+			t.end();
+		});
+});
+
+test('xo/browser with good src config', function (t) {
+	/* eslint-disable */
+	Metalsmith('./test/fixtures/browser')
+	/* eslint-enable */
+		.source('./')
+		.use(xo('browser', {
+			src: ['ok.js', '!error.js']
+		}))
+		.build(function (err) {
+			t.is(err, null);
+			t.end();
+		});
+});
+
+test('xo/browser with bad src config', function (t) {
+	/* eslint-disable */
+	Metalsmith('./test/fixtures/browser')
+	/* eslint-enable */
+		.source('./')
+		.use(xo('browser', {
+			src: ['*.js']
+		}))
+		.build(function (err) {
+			t.ok(err, 'linting failed');
+			t.is(err.message, 'Linting failed with 1 errors!');
+			sinon.assert.calledWithExactly(console.log, '\n\u001b[4merror.js\u001b[24m\n  \u001b[90m1:16\u001b[39m  \u001b[31merror\u001b[39m  "require" is not defined  \u001b[90mno-undef\u001b[39m\n\n\u001b[31m\u001b[1m✖ 1 problem (1 error, 0 warnings)\n\u001b[22m\u001b[39m');
+			t.end();
+		});
+});
+
+test('xo/browser with empty config', function (t) {
+	/* eslint-disable */
+	Metalsmith('./test/fixtures/browser')
+	/* eslint-enable */
+		.source('./')
+		.use(xo('browser', {}))
 		.build(function (err) {
 			t.ok(err, 'linting failed');
 			t.is(err.message, 'Linting failed with 1 errors!');

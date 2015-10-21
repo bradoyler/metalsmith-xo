@@ -35,4 +35,15 @@ metalsmith.use(xo('esnext'));
 metalsmith.use(xo('browser'));
 ```
 
+**Custom metalsmith-eslint config**
+
+By default it will lint all `.js` files except for files in `vendor`, `bower_components`, and `node_modules`. If you wish to override these paths you can by specifying them below.
+
+```js
+var config = {
+	src: ['**/*.js','!ignore-this-folder/**/*.js']
+}
+metalsmith.use(xo('browser', config));
+```
+
 You can pass `esnext` or `browser` to the function to turn on the rules you need. However, `esnext` requires some extra modules that you can read [over there](https://github.com/sindresorhus/eslint-config-xo).

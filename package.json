@@ -9,16 +9,17 @@
   },
   "author": "Blain Smith <rebelgeek@blainsmith.com> (http://blainsmith.com/)",
   "license": "MIT",
-	"repository": "blainsmith/metalsmith-xo",
+  "repository": "blainsmith/metalsmith-xo",
   "keywords": [
     "metalsmith",
     "eslint",
     "linting",
-		"xo"
+    "xo"
   ],
   "dependencies": {
     "eslint": "^1.7.1",
     "eslint-config-xo": "^0.6.0",
+    "lodash.defaults": "^3.1.2",
     "metalsmith-eslint": "0.0.3"
   },
   "devDependencies": {

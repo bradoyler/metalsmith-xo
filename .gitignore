@@ -1,2 +1,4 @@
 .DS_Store
 node_modules
+!test/fixtures/xo/node_modules
+test/fixtures/browser/build
