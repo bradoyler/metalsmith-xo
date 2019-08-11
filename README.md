@@ -1,7 +1,7 @@
 # metalsmith-xo
 
 
-An [XO](https://github.com/sindresorhus/xo) plugin for Metalsmith that uses [metalsmith-elint](https://github.com/ubenzer/metalsmith-eslint) and [eslint-config-xo](https://github.com/sindresorhus/eslint-config-xo) underneath for a minimal config linter.
+An [XO](https://github.com/sindresorhus/xo) plugin for Metalsmith that uses [metalsmith-eslint](https://github.com/ubenzer/metalsmith-eslint) and [eslint-config-xo](https://github.com/sindresorhus/eslint-config-xo) underneath for a minimal config linter.
 
 ## Installation
 
